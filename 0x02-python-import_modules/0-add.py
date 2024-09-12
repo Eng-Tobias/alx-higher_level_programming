@@ -8,4 +8,4 @@ a = 1
 b = 2
 
 # Use the print function with string formatting to display the result
-print(f"{a} + {b} = {add(a, b)}")
+print("{} + {} = {}".format(a, b, add(a, b)))
