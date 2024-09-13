@@ -1,24 +1,18 @@
-#!/usr/bin/python3
-import py_compile
-import os
-import sys
+#!/bin/bash
 
-def main():
-    # Get the file name from the environment variable
-    pyfile = os.getenv('PYFILE')
-    
-    # Check if the environment variable is set
-    if pyfile is None:
-        print("PYFILE environment variable not set")
-        sys.exit(1)
+# Check if the environment variable PYFILE is set
+if [ -z "$PYFILE" ]; then
+    echo "PYFILE environment variable not set"
+    exit 1
+fi
 
-    # Compile the file
-    try:
-        py_compile.compile(pyfile, cfile=f"{pyfile}c", doraise=True)
-        print(f"Compiling {pyfile} ...")
-    except py_compile.PyCompileError as e:
-        print(f"Error compiling {pyfile}: {e}")
-        sys.exit(1)
+# Compile the Python file
+python3 -m py_compile "$PYFILE"
 
-if __name__ == "__main__":
-    main()
+# Rename the compiled file to have a .pyc extension
+if [ -f "${PYFILE}c" ]; then
+    mv "${PYFILE}c" "${PYFILE}c"
+else
+    echo "Error compiling $PYFILE"
+    exit 1
+fi
