@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 
-print(''.join(chr(122 - i // 2) if i % 2 == 0 else chr(90 - i // 2) for i in range(52)))
+print(f"{''.join(chr(i) if (i - 97) % 2 == 0 else chr(i - 32) for i in range(122, 64, -1))}")
