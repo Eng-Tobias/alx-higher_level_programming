@@ -1,18 +1,16 @@
 #!/bin/bash
 
-# Check if the environment variable PYFILE is set
+# Check if the PYFILE environment variable is set
 if [ -z "$PYFILE" ]; then
-    echo "PYFILE environment variable not set"
     exit 1
 fi
 
 # Compile the Python file
 python3 -m py_compile "$PYFILE"
 
-# Rename the compiled file to have a .pyc extension
+# Rename the compiled file
 if [ -f "${PYFILE}c" ]; then
-    mv "${PYFILE}c" "${PYFILE}c"
+    mv "${PYFILE}c" "${PYFILE}.pyc"
 else
-    echo "Error compiling $PYFILE"
     exit 1
 fi
