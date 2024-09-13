@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+import py_compile
+import os
+import sys
+
+def main():
+    # Get the file name from the environment variable
+    pyfile = os.getenv('PYFILE')
+    
+    # Check if the environment variable is set
+    if pyfile is None:
+        print("PYFILE environment variable not set")
+        sys.exit(1)
+
+    # Compile the file
+    try:
+        py_compile.compile(pyfile, cfile=f"{pyfile}c", doraise=True)
+        print(f"Compiling {pyfile} ...")
+    except py_compile.PyCompileError as e:
+        print(f"Error compiling {pyfile}: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
