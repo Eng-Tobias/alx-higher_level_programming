@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 
-def main():
-    mylist = [1, 2, 3, 4]
-    x = len(mylist) + 4
-    print(x)
-
-if __name__ == "__main__":
-    main()
+def safe_print_list_integers(my_list=[], x=0):
+    count = 0
+    for i in range(x):
+        try:
+            if type(my_list[i]) is int:
+                print("{:d}".format(my_list[i]), end="")
+                count += 1
+        except IndexError:
+            break
+    print()
+    return count
