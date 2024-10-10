@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 import sys
 
-
 def print_usage():
-    """Print usage information."""
     print("Usage: nqueens N")
     sys.exit(1)
 
-
 def is_valid_input(n):
-    """Check if the input is a valid integer greater than or equal to 4."""
     if not n.isdigit():
         print("N must be a number")
         sys.exit(1)
@@ -19,14 +15,32 @@ def is_valid_input(n):
         sys.exit(1)
     return n
 
-
 def solve_nqueens(n):
-    """Solve the N queens puzzle."""
-    # Your implementation here
+    def can_place(queens, row, col):
+        for r, c in queens:
+            if c == col or abs(r - row) == abs(c - col):
+                return False
+        return True
 
+    def place_queen(queens, row):
+        if row == n:
+            solutions.append(queens.copy())
+            return
+        for col in range(n):
+            if can_place(queens, row, col):
+                queens.append((row, col))
+                place_queen(queens, row + 1)
+                queens.pop()
+
+    solutions = []
+    place_queen([], 0)
+    return solutions
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print_usage()
     N = is_valid_input(sys.argv[1])
-    solve_nqueens(N)
+    solutions = solve_nqueens(N)
+
+    for solution in solutions:
+        print(solution)
