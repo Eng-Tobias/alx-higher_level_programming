@@ -1,0 +1,7 @@
+>>> from 5-text_indentation import text_indentation
+>>> text_indentation("Hello! How are you? I hope you're doing well: Take care.")
+Hello! How are you?
+
+I hope you're doing well:
+
+Take care.
