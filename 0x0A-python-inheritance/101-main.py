@@ -1,16 +1,24 @@
 #!/usr/bin/python3
-add_attribute = __import__('101-add_attribute').add_attribute
+"""
+Test the add_attribute function.
+"""
+
 
 class MyClass():
+    """
+    A sample class for testing.
+    """
     pass
+
 
 mc = MyClass()
 add_attribute(mc, "name", "John")
-print(mc.name)
+print(mc.name)  # Should print: John
 
+
+a = "My String"
 try:
-    a = "My String"
     add_attribute(a, "name", "Bob")
-    print(a.name)
+    print(a.name)  # This line should not be reached
 except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+    print("[{}] {}".format(e.__class__.__name__, e))  # Should print: [TypeError] can't add new attribute
