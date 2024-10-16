@@ -1,9 +1,8 @@
-# 8-class_to_json.py
 #!/usr/bin/python3
+# Function to convert a class instance to a JSON-compatible dictionary.
+
 def class_to_json(obj):
-    """Returns the dictionary description of an object for JSON serialization."""
-    result = {}
-    for attribute, value in obj.__dict__.items():
-        if isinstance(value, (list, dict, str, int, bool)):
-            result[attribute] = value
-    return result
+    """Returns the dictionary description of a simple data structure
+    for JSON serialization."""
+    return {key: value for key, value in obj.__dict__.items()
+            if isinstance(value, (list, dict, str, int, bool))}
