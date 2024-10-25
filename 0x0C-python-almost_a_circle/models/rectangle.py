@@ -25,9 +25,12 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # Area method to compute the area of the rectangle
+    # Add the public method 'area' to compute the area of the rectangle
     def area(self):
-        """Return the area of the rectangle."""
+        """
+        Return the area of the rectangle.
+        Area = width * height
+        """
         return self.width * self.height
 
     # Display the rectangle using the '#' character
@@ -35,13 +38,3 @@ class Rectangle(Base):
         """Prints the rectangle using the '#' character."""
         for _ in range(self.height):
             print('#' * self.width)
-
-    def __str__(self):
-        """
-        Return a string representation of the Rectangle.
-        Format: [Rectangle] (<id>) <x>/<y> - <width>/<height>
-        """
-        return (
-        f"[Rectangle] ({self.id}) {self.x}/{self.y} - "
-        f"{self.width}/{self.height}"
-    )
