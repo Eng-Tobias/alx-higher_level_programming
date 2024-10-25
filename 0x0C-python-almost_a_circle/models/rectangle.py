@@ -2,13 +2,11 @@
 """ Rectangle module that inherits from Base """
 from models.base import Base
 
-
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base.
     Represents a rectangle with attributes for width, height, x, and y.
     """
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initialize a new Rectangle instance.
@@ -26,6 +24,7 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    # Add the public method 'area' to compute the area of the rectangle
     def area(self):
         """
         Return the area of the rectangle.
@@ -33,7 +32,15 @@ class Rectangle(Base):
         """
         return self.width * self.height
 
-    # Getter and setter for width
+    # Add the public method 'display' to print the rectangle
+    def display(self):
+        """
+        Prints the rectangle using the '#' character.
+        """
+        for _ in range(self.height):
+            print('#' * self.width)
+
+    # The other methods (getters and setters) are already implemented
     @property
     def width(self):
         return self.__width
@@ -46,7 +53,6 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-    # Getter and setter for height
     @property
     def height(self):
         return self.__height
@@ -59,7 +65,6 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-    # Getter and setter for x
     @property
     def x(self):
         return self.__x
@@ -72,7 +77,6 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-    # Getter and setter for y
     @property
     def y(self):
         return self.__y
