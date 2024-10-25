@@ -25,67 +25,20 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # Add the public method 'area' to compute the area of the rectangle
+    # Area method to compute the area of the rectangle
     def area(self):
-        """
-        Return the area of the rectangle.
-        Area = width * height
-        """
+        """Return the area of the rectangle."""
         return self.width * self.height
 
-    # Add the public method 'display' to print the rectangle
+    # Display the rectangle using the '#' character
     def display(self):
-        """
-        Prints the rectangle using the '#' character.
-        """
+        """Prints the rectangle using the '#' character."""
         for _ in range(self.height):
             print('#' * self.width)
 
-    # The other methods (getters and setters) are already implemented
-    @property
-    def width(self):
-        return self.__width
-
-    @width.setter
-    def width(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-
-    @property
-    def height(self):
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value
-
-    @property
-    def x(self):
-        return self.__x
-
-    @x.setter
-    def x(self, value):
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
-        self.__x = value
-
-    @property
-    def y(self):
-        return self.__y
-
-    @y.setter
-    def y(self, value):
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
-        self.__y = value
+    def __str__(self):
+        """
+        Return a string representation of the Rectangle.
+        Format: [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
