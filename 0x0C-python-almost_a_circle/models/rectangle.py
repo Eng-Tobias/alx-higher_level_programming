@@ -2,7 +2,6 @@
 """ Rectangle module that inherits from Base """
 from models.base import Base
 
-
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base.
@@ -25,7 +24,6 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # Add the public method 'area' to compute the area of the rectangle
     def area(self):
         """
         Return the area of the rectangle.
@@ -33,8 +31,22 @@ class Rectangle(Base):
         """
         return self.width * self.height
 
-    # Display the rectangle using the '#' character
     def display(self):
-        """Prints the rectangle using the '#' character."""
+        """
+        Print the rectangle with the character # using the x and y attributes.
+        """
+        # Print y spaces first
+        for _ in range(self.y):
+            print()
+        
+        # Print rectangle
         for _ in range(self.height):
-            print('#' * self.width)
+            print(' ' * self.x + '#' * self.width)
+
+    def __str__(self):
+        """
+        Return the string representation of the Rectangle.
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+
+    # Add additional validation methods here if needed.
