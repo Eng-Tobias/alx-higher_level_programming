@@ -2,11 +2,13 @@
 """ Rectangle module that inherits from Base """
 from models.base import Base
 
+
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base.
     Represents a rectangle with attributes for width, height, x, and y.
     """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initialize a new Rectangle instance.
@@ -24,7 +26,14 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # width attribute getter and setter
+    def area(self):
+        """
+        Return the area of the rectangle.
+        Area = width * height
+        """
+        return self.width * self.height
+
+    # Getter and setter for width
     @property
     def width(self):
         return self.__width
@@ -37,7 +46,7 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-    # height attribute getter and setter
+    # Getter and setter for height
     @property
     def height(self):
         return self.__height
@@ -50,7 +59,7 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-    # x attribute getter and setter
+    # Getter and setter for x
     @property
     def x(self):
         return self.__x
@@ -63,7 +72,7 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-    # y attribute getter and setter
+    # Getter and setter for y
     @property
     def y(self):
         return self.__y
@@ -75,11 +84,3 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
-    # Add the public method 'area' to compute the area of the rectangle
-    def area(self):
-        """
-        Return the area of the rectangle.
-        Area = width * height
-        """
-        return self.width * self.height
