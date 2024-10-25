@@ -7,6 +7,7 @@ class Rectangle(Base):
     Rectangle class that inherits from Base.
     Represents a rectangle with attributes for width, height, x, and y.
     """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initialize a new Rectangle instance.
@@ -24,7 +25,17 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # width attribute getter and setter
+    # Add the area method to calculate and return the area of the rectangle
+    def area(self):
+        """
+        Return the area of the rectangle.
+
+        Returns:
+            int: The area (width * height) of the rectangle.
+        """
+        return self.width * self.height
+
+    # width attribute getter and setter with validation
     @property
     def width(self):
         return self.__width
@@ -37,7 +48,7 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
-    # height attribute getter and setter
+    # height attribute getter and setter with validation
     @property
     def height(self):
         return self.__height
@@ -50,7 +61,7 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
-    # x attribute getter and setter
+    # x attribute getter and setter with validation
     @property
     def x(self):
         return self.__x
@@ -63,7 +74,7 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
-    # y attribute getter and setter
+    # y attribute getter and setter with validation
     @property
     def y(self):
         return self.__y
