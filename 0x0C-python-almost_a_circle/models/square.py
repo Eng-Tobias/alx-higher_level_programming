@@ -19,7 +19,19 @@ class Square(Rectangle):
             y (int): The y-coordinate of the square (optional).
             id (int): The id of the square (optional).
         """
+        # Validate the size parameter as it serves as both width and height
+        self.validate_size(size)
+        
+        # Call the super class constructor with size for width and height
         super().__init__(size, size, x, y, id)
+
+    @staticmethod
+    def validate_size(size):
+        """Validate size as an integer greater than 0."""
+        if not isinstance(size, int):
+            raise TypeError("width must be an integer")
+        if size <= 0:
+            raise ValueError("width must be greater than 0")
 
     def __str__(self):
         """
