@@ -1,15 +1,10 @@
 -- List initial databases
-SELECT schema_name AS 'Database'
-FROM information_schema.schemata
-WHERE schema_name NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys');
+SHOW DATABASES;
 
--- Create multiple databases
-CREATE DATABASE my_db_01;
-CREATE DATABASE my_db_02;
-CREATE DATABASE my_db_03;
-CREATE DATABASE holbteron_db;
+-- Create new databases, if they don't already exist
+CREATE DATABASE IF NOT EXISTS my_db_01;
+CREATE DATABASE IF NOT EXISTS my_db_02;
+CREATE DATABASE IF NOT EXISTS my_db_03;
 
--- List databases again after creation
-SELECT schema_name AS 'Database'
-FROM information_schema.schemata
-WHERE schema_name NOT IN ('information_schema', 'performance_schema', 'mysql', 'sys');
+-- List databases after creation
+SHOW DATABASES;
