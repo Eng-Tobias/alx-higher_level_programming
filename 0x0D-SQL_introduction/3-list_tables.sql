@@ -1,5 +1,4 @@
-#!/bin/bash
-# This script lists all tables in a specified database
+-- This script lists all tables in the specified database
+-- It takes the database name as an argument
 
-DB_NAME=$1
-mysql -hlocalhost -uroot -p -e "SHOW TABLES;" $DB_NAME
+SHOW TABLES;
