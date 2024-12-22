@@ -1,0 +1,3 @@
+-- List all databases in the MySQL server
+SELECT SCHEMA_NAME
+FROM INFORMATION_SCHEMA.SCHEMATA;
