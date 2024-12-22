@@ -1,53 +1,62 @@
-# ALX Higher Level Programming
+# SQL Introduction
 
-This repository contains scripts and programs related to various tasks and exercises in higher-level programming.
-
-## Directory Structure
-
-- `0x00-python-hello_world/`: Contains Python scripts and shell scripts related to basic Python and shell scripting tasks.
-- `0x01-shell_permissions/`: Contains shell scripts related to file permissions.
-- `0x02-python-import_modules/`: Contains Python scripts related to importing modules.
-- `0x03-python-data_structures/`: Contains Python scripts related to data structures.
-- `0x04-python-more_data_structures/`: Contains Python scripts related to more data structures.
-- `0x05-python-exceptions/`: Contains Python scripts related to exception handling.
-- `0x06-python-classes/`: Contains Python scripts related to classes and objects.
-- `0x07-python-test_driven_development/`: Contains Python scripts related to test-driven development.
-- `0x08-python-more_classes/`: Contains Python scripts related to advanced class concepts.
+This directory contains a series of SQL scripts that introduce the basics of interacting with a MySQL database. Each script corresponds to a specific task that is designed to help you understand how to use SQL for common database operations.
 
 ## Tasks
 
-### Task 0: Run Python File
+### 0. List Databases
+- **File:** `0-list_databases.sql`
+- **Description:** This script lists all databases in the MySQL server.
 
-**Objective**: Write a shell script that runs a Python script.
+### 1. Create a Database
+- **File:** `1-create_database_if_missing.sql`
+- **Description:** This script creates the database `hbtn_0c_0` in the MySQL server. If the database already exists, the script does not fail.
 
-**Details**:
-- Create a Python file named `main.py` that prints "Best School".
-- Create a shell script named `0-run` that runs the Python script using the environment variable `PYFILE` to specify the script.
+### 2. Delete a Database
+- **File:** `2-remove_database.sql`
+- **Description:** This script deletes the `hbtn_0c_0` database if it exists. If the database does not exist, the script does not fail.
 
-**Files**:
-- `main.py`: Contains the Python code to print "Best School".
-- `0-run`: A shell script that executes the Python script specified by the `PYFILE` environment variable.
+### 3. List Tables
+- **File:** `3-list_tables.sql`
+- **Description:** This script lists all tables in a given database, passed as an argument to the MySQL command.
 
-### Task 1: Shell Script Examples
+### 4. First Table
+- **File:** `4-first_table.sql`
+- **Description:** This script creates a table called `first_table` in the current database. The table has two columns: `id` (INT) and `name` (VARCHAR(256)). If the table already exists, the script does not fail.
 
-**Objective**: Various shell scripts that accomplish specific tasks.
+### 5. Full Description
+- **File:** `5-full_table.sql`
+- **Description:** This script prints the full description (create statement) of the table `first_table` in the `hbtn_0c_0` database without using `DESCRIBE` or `EXPLAIN`.
 
-**Details**:
-- Shell scripts should be exactly two lines long.
-- Files should end with a newline.
-- First line of all files should be `#!/bin/bash`.
+### 6. List All in Table
+- **File:** `6-list_values.sql`
+- **Description:** This script lists all rows from the `first_table` in the `hbtn_0c_0` database, displaying all fields.
 
-### Task 2: C Programming Examples
+### 7. First Add
+- **File:** `7-insert_value.sql`
+- **Description:** This script inserts a new row into the `first_table` in the `hbtn_0c_0` database with `id = 89` and `name = 'Best School'`.
 
-**Objective**: C programs that adhere to specific coding standards and guidelines.
+### 8. Count 89
+- **File:** `8-count_89.sql`
+- **Description:** This script counts the number of rows with `id = 89` in the `first_table` in the `hbtn_0c_0` database.
 
-**Details**:
-- All C files should be compiled using `gcc` with specific options: `-Wall -Werror -Wextra -pedantic -std=gnu89`.
-- Follow the Betty style guide for coding and documentation.
-- Include header files with function prototypes and use include guards.
+### 9. Full Creation
+- **File:** `9-full_creation.sql`
+- **Description:** This script creates a table called `second_table` in the `hbtn_0c_0` database and inserts multiple rows into the table. The table includes `id`, `name`, and `score` columns.
 
-## How to Set Up
+### 10. List by Best
+- **File:** `10-list_by_best.sql`
+- **Description:** This script lists all records from the `second_table` in the `hbtn_0c_0` database, ordered by `score` in descending order.
 
-1. **Clone the Repository**:
+## Requirements
+
+- **MySQL Version:** 8.0 (tested with version 8.0.25-0ubuntu0.20.04.1)
+- **Operating System:** Ubuntu 20.04 LTS
+- **Editors:** Allowed editors are vi, vim, emacs
+
+## Setup Instructions
+
+1. Install MySQL 8.0 on Ubuntu 20.04 LTS:
    ```bash
-   git clone https://github.com/yourusername/alx-higher_level_programming.git
+   sudo apt update
+   sudo apt install mysql-server
